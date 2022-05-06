@@ -37,3 +37,79 @@ table th:nth-of-type(4) {
 | [西班牙泰纳通](https://www.tecnatom.es)                       | 西班牙驻华大使德斯卡亚和经商参赞马丁内斯出席会议                                                                                 | 暂未找到，持续关注                                                       | 核电技术服务、培训和联合开发第三方市场等领域                                                                                   |
 | [国机集团](http://www.sinomach.com.cn)                        | 未明确                                                                                                                           | 1.援老挝乌多姆赛职业技能发展中心项目2.秘鲁利马供水和排水系统升级扩建项目 | 设备研发与制造、国际市场开拓、资本运营等多个领域                                                                               |
 | [中国安能](https://www.china-an.cn)                           | 中国安能办公室、战略规划部、工程管理部、市场经营部                                                                               | 暂未找到，持续关注                                                       | 建筑、新能源、消防安全等领域                                                                                                   |
+
+<div id="container" style="height: 720px"></div>
+
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title: {
+    text: '取自走出去情报-新签合同情况'
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    boundaryGap: [0, 0.01]
+  },
+  yAxis: {
+    type: 'category',
+    data: ['国铁集团', '中国电科', '中国建筑', '中国有色',
+    '国家电网', '南方电网', '哈电国际', '东方电气', '中国石化',
+    '中国铁建', '国家能源', '华能集团', '泰纳通', '国机集团',
+    '中国安能']
+  },
+  series: [
+    {
+      name: '19年6月以来提及次数',
+      type: 'bar',
+      data: [0, 1, 62, 0, 0, 0, 3, 6, 4, 44, 0, 0, 0, 11, 0]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
